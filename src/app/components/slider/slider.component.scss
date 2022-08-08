@@ -1,0 +1,34 @@
+.slide {
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+.fullSlide {
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+
+  .slideTitle {
+    color: red;
+    position: absolute;
+    z-index: 4;
+  }
+
+  .background {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.normalSlide {
+  height: 90vh;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+
+  .background {
+    width: 30%;
+    height: auto;
+  }
+}

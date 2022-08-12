@@ -1,7 +1,10 @@
+@import "../../shared/styles/colors";
+
 .slide {
   display: flex;
   position: relative;
   width: 100%;
+  color: wheat;
 }
 
 .fullSlide {
@@ -10,7 +13,6 @@
   height: 100vh;
 
   .slideTitle {
-    color: red;
     position: absolute;
     z-index: 4;
   }
@@ -27,8 +29,17 @@
   align-items: center;
   justify-content: center;
 
-  .background {
+  .photo {
     width: 30%;
-    height: auto;
+    height: 80%;
+    margin-right: 100px;
   }
+}
+
+.bck-main-color {
+  background-color: $main-color;
+}
+
+.bck-second-color {
+  background-color: $second-color;
 }

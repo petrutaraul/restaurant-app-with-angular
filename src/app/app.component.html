@@ -1,5 +1,7 @@
 <div *ngIf="sliders$ | async as slider">
-  <div *ngFor="let slide of slider">
-    <app-slider [sliderData]="slide"></app-slider>
-  </div>
+  <app-slider
+    [sliderData]="slide"
+    *ngFor="let slide of slider; let i = index"
+    [sliderIndex]="i"
+  ></app-slider>
 </div>

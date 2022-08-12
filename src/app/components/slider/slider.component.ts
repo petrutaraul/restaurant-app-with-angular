@@ -1,18 +1,16 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Slider} from "../../shared/interfaces/slider";
+import { Component, Input, OnInit } from '@angular/core';
+import { Slider } from '../../shared/interfaces/slider';
 
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.component.html',
-  styleUrls: ['./slider.component.scss']
+  styleUrls: ['./slider.component.scss'],
 })
 export class SliderComponent implements OnInit {
-
   @Input('sliderData') slide: Slider;
+  @Input('sliderIndex') sliderIndex: number;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

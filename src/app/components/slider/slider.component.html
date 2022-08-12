@@ -11,12 +11,19 @@
 </div>
 
 <ng-template #normalSlide>
-  <div class="normalSlide slide">
+  <div
+    class="normalSlide slide"
+    [ngClass]="{
+      'normalSlide slide': true,
+      'bck-main-color': sliderIndex % 2 === 0,
+      'bck-second-color': sliderIndex % 2 === 1
+    }"
+  >
     <h1 class="slideTitle">{{ slide.fields.sliderTitle }}</h1>
     <img
       [src]="slide.fields.sliderBackground.fields.file.url"
       [alt]="slide.fields.sliderBackground.fields.title"
-      class="background"
+      class="photo"
     />
   </div>
 </ng-template>

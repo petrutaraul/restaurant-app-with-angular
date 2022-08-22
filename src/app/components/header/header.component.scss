@@ -1,0 +1,23 @@
+@import "../../shared/styles/colors";
+
+.navbar {
+  display: flex;
+  align-items: center;
+
+  .home-link {
+    font-weight: 900;
+    font-size: 1.6rem;
+    margin: 0 20px;
+    cursor: pointer;
+  }
+
+  .active {
+    background-color: $second-color;
+    padding: 10px;
+
+    a {
+      color: $main-text-color;
+      font-weight: 600;
+    }
+  }
+}

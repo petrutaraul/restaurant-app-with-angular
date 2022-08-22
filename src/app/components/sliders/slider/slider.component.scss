@@ -1,10 +1,10 @@
-@import "../../shared/styles/colors";
+@import "../../../shared/styles/colors";
 
 .slide {
   display: flex;
   position: relative;
   width: 100%;
-  color: wheat;
+  color: $main-text-color;
 }
 
 .fullSlide {

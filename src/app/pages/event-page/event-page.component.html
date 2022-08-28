@@ -1,0 +1,10 @@
+<div *ngIf="event$ | async as event">
+  <p>{{ event.eventTitle }}</p>
+  <p>{{ event.eventDescription }}</p>
+  <div>
+    <img
+      *ngFor="let image of event.eventImages"
+      [src]="[image.fields.file.url]"
+    />
+  </div>
+</div>

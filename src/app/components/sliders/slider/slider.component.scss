@@ -34,6 +34,15 @@
     height: 80%;
     margin-right: 100px;
   }
+
+  .eventButton {
+    background-color: $second-color;
+    font-weight: 900;
+    color: $main-color;
+    cursor: pointer;
+    border-radius: 12px;
+    padding: 8px;
+  }
 }
 
 .bck-main-color {

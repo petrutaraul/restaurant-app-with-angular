@@ -1,1 +1,3 @@
-<p>events works!</p>
+<div *ngIf="events$ | async as event">
+  <app-event *ngFor="let event of event" [eventData]="event"></app-event>
+</div>

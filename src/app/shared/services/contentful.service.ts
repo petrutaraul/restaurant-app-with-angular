@@ -18,12 +18,24 @@ export class ContentfulService {
   logContent(contentId: string) {
     this.client
       .getEntry(contentId)
-      .then((entry: any) => console.log(entry.fields.moreSLdiers));
+      .then((entry: any) => console.log(entry.fields));
   }
 
-  // retrieves content mapped to its data fields
+  // retrieves main page sliders data
   getSlidersData(contentId: string) {
     const promise = this.client.getEntry(contentId);
     return from(promise).pipe(map((entry: any) => entry.fields.moreSLdiers));
+  }
+
+  // retrive events in events page
+  getEventsData(contentId: string) {
+    const promise = this.client.getEntry(contentId);
+    return from(promise).pipe(map((entry: any) => entry.fields.event));
+  }
+
+  // retrive specific event page data
+  getSingleEventPageData(contentId: string) {
+    const promise = this.client.getEntry(contentId);
+    return from(promise).pipe(map((entry: any) => entry.fields));
   }
 }

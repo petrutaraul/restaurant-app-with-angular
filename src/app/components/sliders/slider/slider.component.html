@@ -19,7 +19,13 @@
       'bck-second-color': sliderIndex % 2 === 1
     }"
   >
-    <h1 class="slideTitle">{{ slide.fields.sliderTitle }}</h1>
+    <div>
+      <h1 class="slideTitle">{{ slide.fields.sliderTitle }}</h1>
+      <button class="eventButton" *ngIf="slide.fields.eventPageButton">
+        {{ slide.fields.eventPageButton }}
+      </button>
+    </div>
+
     <img
       [src]="slide.fields.sliderBackground.fields.file.url"
       [alt]="slide.fields.sliderBackground.fields.title"

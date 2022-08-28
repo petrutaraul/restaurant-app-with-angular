@@ -1,0 +1,9 @@
+@import "./colors";
+
+.second-button {
+  background-color: $main-color;
+  color: $main-text-color;
+  padding: 8px;
+  border-radius: 12px;
+  font-weight: 700;
+}

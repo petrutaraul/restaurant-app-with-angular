@@ -1,0 +1,8 @@
+<div class="event">
+  <p style="color: red">
+    {{ event.fields.eventTitle }}
+  </p>
+  <a [routerLink]="['/events', event.sys.id]" class="second-button"
+    >Go to see details</a
+  >
+</div>

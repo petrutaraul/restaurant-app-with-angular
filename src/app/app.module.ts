@@ -10,6 +10,8 @@ import { SlidersComponent } from './components/sliders/sliders.component';
 import { HomeComponent } from './pages/home/home.component';
 import { EventPageComponent } from './pages/event-page/event-page.component';
 import { EventComponent } from './components/events/event/event.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -21,8 +23,9 @@ import { EventComponent } from './components/events/event/event.component';
     HomeComponent,
     EventPageComponent,
     EventComponent,
+    CalendarComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

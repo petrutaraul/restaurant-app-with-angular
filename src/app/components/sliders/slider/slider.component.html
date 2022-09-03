@@ -24,6 +24,8 @@
       <button class="eventButton" *ngIf="slide.fields.eventPageButton">
         {{ slide.fields.eventPageButton }}
       </button>
+
+      <app-calendar *ngIf="slide.fields.hasCalendar"></app-calendar>
     </div>
 
     <img

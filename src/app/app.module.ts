@@ -12,6 +12,9 @@ import { EventPageComponent } from './pages/event-page/event-page.component';
 import { EventComponent } from './components/events/event/event.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     EventComponent,
     CalendarComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

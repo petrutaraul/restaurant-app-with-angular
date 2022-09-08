@@ -14,9 +14,26 @@
   >
     <div>
       <h1 class="slideTitle">{{ sliderTitle }}</h1>
-      <button class="eventButton" *ngIf="eventPageButton">
+      <p *ngIf="eventDescription">{{ eventDescription }}</p>
+      <button
+        *ngIf="eventPageButton"
+        [ngClass]="{
+          'eventButton-main': sliderIndex % 2 === 0,
+          'eventButton-second': sliderIndex % 2 === 1
+        }"
+      >
         {{ eventPageButton }}
       </button>
+
+      <a
+        [routerLink]="['/events', routerLinkId]"
+        [ngClass]="{
+          'eventButton-main': sliderIndex % 2 === 0,
+          'eventButton-second': sliderIndex % 2 === 1
+        }"
+        *ngIf="routerLinkId"
+        >{{ sliderTitle }}</a
+      >
 
       <app-calendar *ngIf="hasCalendar"></app-calendar>
     </div>

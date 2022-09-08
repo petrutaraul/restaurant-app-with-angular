@@ -1,3 +1,9 @@
 <div *ngIf="events$ | async as event">
-  <app-event *ngFor="let event of event" [eventData]="event"></app-event>
+  <app-slider
+    *ngFor="let event of event; let i = index"
+    [sliderIndex]="i"
+    [sliderTitle]="event.fields.eventTitle"
+    [routerLinkId]="event.sys.id"
+    [fileUrl]="event.fields.eventImages[0].fields.file.url"
+  ></app-slider>
 </div>

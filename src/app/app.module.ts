@@ -9,7 +9,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { SlidersComponent } from './components/sliders/sliders.component';
 import { HomeComponent } from './pages/home/home.component';
 import { EventPageComponent } from './pages/event-page/event-page.component';
-import { EventComponent } from './components/events/event/event.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
@@ -28,7 +27,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     SlidersComponent,
     HomeComponent,
     EventPageComponent,
-    EventComponent,
     CalendarComponent,
     FormComponent,
   ],

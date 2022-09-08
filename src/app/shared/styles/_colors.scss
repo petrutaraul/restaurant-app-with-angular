@@ -3,3 +3,11 @@ $second-color: #617073;
 
 $main-text-color: wheat;
 $white-color: #fff;
+
+.bck-main-color {
+  background-color: $main-color;
+}
+
+.bck-second-color {
+  background-color: $second-color;
+}

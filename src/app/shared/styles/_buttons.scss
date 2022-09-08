@@ -7,3 +7,19 @@
   border-radius: 12px;
   font-weight: 700;
 }
+
+.eventButton-main {
+  background-color: $second-color;
+  font-weight: 900;
+  color: $main-color;
+  cursor: pointer;
+  border-radius: 12px;
+  padding: 8px;
+  text-decoration: none;
+}
+
+.eventButton-second {
+  @extend .eventButton-main;
+  background-color: $main-color;
+  color: $second-color;
+}

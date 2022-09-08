@@ -13,6 +13,8 @@ export class SliderComponent implements OnInit {
   @Input() fileTitle: string;
   @Input() eventPageButton: boolean | string;
   @Input() hasCalendar: boolean;
+  @Input() eventDescription: string | boolean;
+  @Input() routerLinkId: number;
 
   constructor() {}
 

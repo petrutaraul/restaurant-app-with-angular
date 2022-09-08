@@ -6,6 +6,7 @@ export interface Slider {
     sliderBackground: ImageProps;
     hasCalendar: boolean;
   };
+  eventDescription?: string | boolean;
 }
 
 export interface ImageProps {

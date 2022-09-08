@@ -1,10 +1,13 @@
-<div *ngIf="event$ | async as event">
-  <p>{{ event.eventTitle }}</p>
-  <p>{{ event.eventDescription }}</p>
-  <div>
-    <img
-      *ngFor="let image of event.eventImages"
-      [src]="[image.fields.file.url]"
-    />
+<div *ngIf="event$ | async as event" class="event-page">
+  <div class="content">
+    <p class="title">{{ event.eventTitle }}</p>
+    <p class="description">{{ event.eventDescription }}</p>
+    <h2 class="section-title">Event images</h2>
+    <div class="images">
+      <img
+        *ngFor="let image of event.eventImages"
+        [src]="[image.fields.file.url]"
+      />
+    </div>
   </div>
 </div>

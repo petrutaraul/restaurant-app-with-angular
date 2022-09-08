@@ -1,1 +1,35 @@
-@import "../../shared/styles/slider";
+@import "../../shared/styles/colors";
+@import "../../shared/styles/titles";
+
+.event-page {
+  height: 100%;
+
+  .content {
+    color: $white-color;
+    background-color: $second-color;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+    justify-content: center;
+    align-items: center;
+
+    .images {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-column-gap: 0px;
+      grid-row-gap: 0px;
+      gap: 10px;
+
+      img {
+        width: 300px;
+        height: auto;
+      }
+    }
+
+    .section-title {
+      padding-top: 40px;
+    }
+  }
+}

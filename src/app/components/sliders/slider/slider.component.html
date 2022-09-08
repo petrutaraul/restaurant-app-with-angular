@@ -8,8 +8,8 @@
     class="normalSlide slide"
     [ngClass]="{
       'normalSlide slide': true,
-      'bck-main-color': sliderIndex % 2 === 0,
-      'bck-second-color': sliderIndex % 2 === 1
+      'bck-main-color': sliderIndex % 2 === 1,
+      'bck-second-color': sliderIndex % 2 === 0
     }"
   >
     <div>
@@ -18,8 +18,8 @@
       <button
         *ngIf="eventPageButton"
         [ngClass]="{
-          'eventButton-main': sliderIndex % 2 === 0,
-          'eventButton-second': sliderIndex % 2 === 1
+          'eventButton-main': sliderIndex % 2 === 1,
+          'eventButton-second': sliderIndex % 2 === 0
         }"
       >
         {{ eventPageButton }}
@@ -28,8 +28,8 @@
       <a
         [routerLink]="['/events', routerLinkId]"
         [ngClass]="{
-          'eventButton-main': sliderIndex % 2 === 0,
-          'eventButton-second': sliderIndex % 2 === 1
+          'eventButton-main': sliderIndex % 2 === 1,
+          'eventButton-second': sliderIndex % 2 === 0
         }"
         *ngIf="routerLinkId"
         >{{ sliderTitle }}</a

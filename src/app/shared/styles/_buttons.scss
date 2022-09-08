@@ -23,3 +23,22 @@
   background-color: $main-color;
   color: $second-color;
 }
+
+.header-btn {
+  background-color: transparent;
+  padding: 10px;
+
+  a {
+    color: $main-text-color;
+    font-weight: 600;
+  }
+}
+
+.active {
+  @extend .header-btn;
+  background-color: $second-color;
+
+  a {
+    color: $main-text-color;
+  }
+}

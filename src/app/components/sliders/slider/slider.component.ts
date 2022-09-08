@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Slider } from 'src/app/shared/interfaces/slider';
 
 @Component({
   selector: 'app-slider',
@@ -7,8 +6,13 @@ import { Slider } from 'src/app/shared/interfaces/slider';
   styleUrls: ['./slider.component.scss'],
 })
 export class SliderComponent implements OnInit {
-  @Input('sliderData') slide: Slider;
   @Input('sliderIndex') sliderIndex: number;
+  @Input() sliderTitle: string;
+  @Input() isImageSetAsBackground: boolean;
+  @Input() fileUrl: string;
+  @Input() fileTitle: string;
+  @Input() eventPageButton: boolean | string;
+  @Input() hasCalendar: boolean;
 
   constructor() {}
 

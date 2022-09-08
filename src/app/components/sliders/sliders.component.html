@@ -1,7 +1,12 @@
 <div *ngIf="sliders$ | async as slider">
   <app-slider
-    [sliderData]="slide"
     *ngFor="let slide of slider; let i = index"
     [sliderIndex]="i"
+    [sliderTitle]="slide.fields.sliderTitle"
+    [isImageSetAsBackground]="slide.fields.isImageSetAsBackground"
+    [fileUrl]="slide.fields.sliderBackground.fields.file.url"
+    [fileTitle]="slide.fields.sliderBackground.fields.title"
+    [eventPageButton]="slide.fields.eventPageButton"
+    [hasCalendar]="slide.fields.hasCalendar"
   ></app-slider>
 </div>

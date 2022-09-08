@@ -1,13 +1,6 @@
-<div
-  class="fullSlide slide"
-  *ngIf="slide.fields.isImageSetAsBackground; else normalSlide"
->
-  <h1 class="slideTitle">{{ slide.fields.sliderTitle }}</h1>
-  <img
-    [src]="slide.fields.sliderBackground.fields.file.url"
-    [alt]="slide.fields.sliderBackground.fields.title"
-    class="background"
-  />
+<div class="fullSlide slide" *ngIf="isImageSetAsBackground; else normalSlide">
+  <h1 class="slideTitle">{{ sliderTitle }}</h1>
+  <img [src]="fileUrl" [alt]="fileTitle" class="background" />
 </div>
 
 <ng-template #normalSlide>
@@ -20,18 +13,14 @@
     }"
   >
     <div>
-      <h1 class="slideTitle">{{ slide.fields.sliderTitle }}</h1>
-      <button class="eventButton" *ngIf="slide.fields.eventPageButton">
-        {{ slide.fields.eventPageButton }}
+      <h1 class="slideTitle">{{ sliderTitle }}</h1>
+      <button class="eventButton" *ngIf="eventPageButton">
+        {{ eventPageButton }}
       </button>
 
-      <app-calendar *ngIf="slide.fields.hasCalendar"></app-calendar>
+      <app-calendar *ngIf="hasCalendar"></app-calendar>
     </div>
 
-    <img
-      [src]="slide.fields.sliderBackground.fields.file.url"
-      [alt]="slide.fields.sliderBackground.fields.title"
-      class="photo"
-    />
+    <img [src]="fileUrl" [alt]="fileTitle" class="photo" />
   </div>
 </ng-template>

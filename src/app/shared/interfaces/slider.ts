@@ -2,9 +2,9 @@ export interface Slider {
   fields: {
     sliderTitle: string;
     isImageSetAsBackground: boolean;
-    eventPageButton?: boolean | string;
+    eventPageButton: boolean | string;
     sliderBackground: ImageProps;
-    hasCalendar?: boolean;
+    hasCalendar: boolean;
   };
 }
 

@@ -4,4 +4,8 @@
     [dateFilter]="bookedDatesFilter"
   ></mat-calendar>
 </mat-card>
-<p>Selected date: {{ selected }}</p>
+
+<app-form
+  *ngIf="selected"
+  [bookingDate]="selected.toLocaleDateString('ro-RO')"
+></app-form>

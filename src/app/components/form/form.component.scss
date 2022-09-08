@@ -1,0 +1,27 @@
+@import "../../shared/styles/colors";
+
+.form {
+  display: flex;
+  flex-direction: column;
+
+  mat-form-field {
+    height: 60px;
+
+    &:nth-child(3) {
+      height: 80px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      background-color: transparent;
+      border: 2px solid $main-text-color;
+      color: $white-color;
+
+      &:disabled {
+        cursor: not-allowed;
+      }
+    }
+  }
+}

@@ -18,6 +18,7 @@ import { FormComponent } from './components/form/form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { toLocaleDateString } from './shared/pipes/toLocaleDateString/to-locale-date-string';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     EventPageComponent,
     CalendarComponent,
     FormComponent,
+    toLocaleDateString,
   ],
   imports: [
     BrowserModule,

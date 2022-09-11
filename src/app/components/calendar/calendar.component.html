@@ -7,5 +7,5 @@
 
 <app-form
   *ngIf="selected"
-  [bookingDate]="selected.toLocaleDateString('ro-RO')"
+  [bookingDate]="selected | toLocaleDateString"
 ></app-form>

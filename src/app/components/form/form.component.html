@@ -1,31 +1,32 @@
 <form class="form">
-  <mat-form-field appearance="fill">
-    <mat-label>Date to be booked</mat-label>
-    <input
-      matInput
-      disabled
-      value="{{ 'Date to be booked: ' + bookingDate }}"
-    />
-  </mat-form-field>
+  <div class="inputs">
+    <mat-form-field appearance="fill">
+      <input
+        matInput
+        disabled
+        value="{{ 'Date to be booked: ' + bookingDate }}"
+      />
+    </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>My name</mat-label>
-    <input matInput placeholder="My name" />
-  </mat-form-field>
-
-  <mat-form-field appearance="fill">
-    <mat-label>My message</mat-label>
-    <textarea matInput placeholder="Hello! I want to book an event."></textarea>
-  </mat-form-field>
-
-  <mat-form-field appearance="fill">
-    <mat-label>Enter your email</mat-label>
-    <input
+    <!-- TODO in the next sprint: implement send user details data to BE -->
+    <!-- <mat-form-field appearance="fill">
+      <input matInput placeholder="My name" />
+    </mat-form-field>
+    
+    <mat-form-field appearance="fill">
+      <textarea matInput placeholder="Hello! I want to book an event."></textarea>
+    </mat-form-field>
+    
+    <mat-form-field appearance="fill">
+      <input
       matInput
       placeholder="mail@example.com"
       [formControl]="email"
       required
-    />
-    <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
-  </mat-form-field>
+      />
+      <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+    </mat-form-field> -->
+  </div>
+
+  <button class="second-button">Book now</button>
 </form>

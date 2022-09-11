@@ -1,27 +1,44 @@
 @import "../../shared/styles/colors";
+@import "../../shared/styles/buttons";
+
+// TODO: style weird form grey-ish background
+// .mat-form-field {
+//   background-color: transparent !important;
+// }
 
 .form {
-  display: flex;
-  flex-direction: column;
+  .inputs {
+    display: flex;
+    flex-direction: column;
 
-  mat-form-field {
-    height: 60px;
+    mat-form-field {
+      height: 60px;
 
-    &:nth-child(3) {
-      height: 80px;
-    }
+      &:nth-child(3) {
+        height: 80px;
+      }
 
-    input,
-    textarea {
-      width: 100%;
-      padding: 10px;
-      background-color: transparent;
-      border: 2px solid $main-text-color;
-      color: $white-color;
+      input,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        background-color: transparent;
+        border: 2px solid $main-text-color;
+        color: $white-color;
 
-      &:disabled {
-        cursor: not-allowed;
+        &:disabled {
+          cursor: not-allowed;
+        }
       }
     }
+  }
+
+  ::ng-deep .mat-form-field-wrapper .mat-form-field-flex {
+    background-color: transparent;
+    padding: 0;
+  }
+
+  button {
+    margin-top: 20px;
   }
 }

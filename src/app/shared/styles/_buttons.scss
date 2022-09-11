@@ -1,6 +1,31 @@
 @import "./colors";
 
+.general-button-style {
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.hover-main-btn {
+  &:hover {
+    background-color: $hover-main-button;
+  }
+}
+
+.hover-second-btn {
+  &:hover {
+    background-color: $hover-second-button;
+  }
+}
+
 .second-button {
+  @extend .general-button-style;
+  @extend .hover-main-btn;
+
   background-color: $main-color;
   color: $main-text-color;
   padding: 8px;
@@ -9,6 +34,9 @@
 }
 
 .eventButton-main {
+  @extend .general-button-style;
+  @extend .hover-second-btn;
+
   background-color: $second-color;
   font-weight: 900;
   color: $main-color;
@@ -19,7 +47,9 @@
 }
 
 .eventButton-second {
+  @extend .general-button-style;
   @extend .eventButton-main;
+  @extend .hover-main-btn;
   background-color: $main-color;
   color: $second-color;
 }
@@ -31,14 +61,18 @@
   a {
     color: $main-text-color;
     font-weight: 600;
+
+    @extend .general-button-style;
   }
 }
 
 .active {
   @extend .header-btn;
+  @extend .hover-second-btn;
   background-color: $second-color;
 
   a {
+    @extend .general-button-style;
     color: $main-text-color;
   }
 }

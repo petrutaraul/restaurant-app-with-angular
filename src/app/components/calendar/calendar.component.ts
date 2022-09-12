@@ -17,6 +17,7 @@ export class CalendarComponent implements OnInit {
 
   bookedDatesFilter = (date: Date) => {
     const time = date.getTime();
+
     return !this.bookedDates.find((x) => x.getTime() == time);
   };
 

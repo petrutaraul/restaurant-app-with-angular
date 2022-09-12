@@ -1,3 +1,15 @@
-.demo-inline-calendar-card {
+@import "../../shared/styles/colors";
+
+.booking-calendar {
   width: 300px;
+
+  button.selected {
+    background: $main-text-color;
+    border-radius: 100%;
+  }
+
+  .mat-calendar-body-cell-content.mat-focus-indicator:hover {
+    background-color: $hover-second-button !important;
+    color: $white-color !important;
+  }
 }

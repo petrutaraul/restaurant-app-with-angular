@@ -1,11 +1,11 @@
 <form class="form" [formGroup]="calendarForm">
   <div class="inputs">
     <mat-form-field appearance="fill">
-      <input
+      <textarea
         matInput
         disabled
-        value="{{ 'Date to be booked: ' + bookingDate }}"
-      />
+        value="{{ getCorrectLabelForDates() }}"
+      ></textarea>
     </mat-form-field>
 
     <mat-form-field appearance="fill">

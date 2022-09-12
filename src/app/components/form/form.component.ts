@@ -7,7 +7,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./form.component.scss'],
 })
 export class FormComponent implements OnInit {
-  @Input() bookingDate: string;
+  @Input() bookingDates: string[];
 
   calendarForm = new FormGroup({
     // TODO: add in the future sprint
@@ -16,6 +16,13 @@ export class FormComponent implements OnInit {
   });
 
   constructor() {}
+
+  getCorrectLabelForDates() {
+    if (this.bookingDates.length <= 1)
+      return 'Date to be booked: ' + this.bookingDates;
+
+    return 'Dates to be booked: ' + this.bookingDates;
+  }
 
   ngOnInit(): void {}
 }

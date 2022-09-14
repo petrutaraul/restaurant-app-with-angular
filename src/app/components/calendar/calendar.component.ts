@@ -92,8 +92,17 @@ export class CalendarComponent implements AfterViewInit, OnInit {
     });
   };
 
+  scrollToButtom() {
+    setTimeout(() => {
+      window.scrollTo(0, document.body.scrollHeight);
+    }, 1000);
+  }
+
   reload = () => {
     this.router.navigateByUrl('/home');
+    if (!this.loading) {
+      this.scrollToButtom();
+    }
   };
 
   ngOnInit(): void {}

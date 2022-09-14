@@ -8,8 +8,15 @@
     border-radius: 100%;
   }
 
-  .mat-calendar-body-cell-content.mat-focus-indicator:hover {
+  .mat-calendar-body-cell:hover {
     background-color: $hover-second-button !important;
     color: $white-color !important;
+    border-radius: 100%;
+  }
+
+  .mat-calendar-body-disabled:hover {
+    background-color: $hover-booked-date !important;
+    border-radius: 100%;
+    cursor: not-allowed;
   }
 }

@@ -76,3 +76,12 @@
     color: $main-text-color;
   }
 }
+
+.book-now-btn {
+  @extend .eventButton-main;
+  background-color: $main-text-color;
+
+  &:hover {
+    background-color: $book-now-btn-bg;
+  }
+}

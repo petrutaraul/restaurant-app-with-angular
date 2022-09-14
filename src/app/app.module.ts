@@ -19,6 +19,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { toLocaleDateString } from './shared/pipes/toLocaleDateString/to-locale-date-string';
+import { BookNowScrollBtnComponent } from './components/book-now-scroll-btn/book-now-scroll-btn.component';
+import { BookingSliderComponent } from './components/sliders/booking-slider/booking-slider.component';
+import { HttpClientModule } from '@angular/common/http';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +36,9 @@ import { toLocaleDateString } from './shared/pipes/toLocaleDateString/to-locale-
     CalendarComponent,
     FormComponent,
     toLocaleDateString,
+    BookNowScrollBtnComponent,
+    BookingSliderComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +50,7 @@ import { toLocaleDateString } from './shared/pipes/toLocaleDateString/to-locale-
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

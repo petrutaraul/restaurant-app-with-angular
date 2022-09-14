@@ -14,8 +14,6 @@ export class SlidersComponent implements OnInit {
   constructor(private contentful: ContentfulService) {}
 
   ngOnInit(): void {
-    this.contentful.logContent('4qrhYDhfCjwxzTGOh3LE4W');
-
     this.sliders$ = this.contentful.getSlidersData('4qrhYDhfCjwxzTGOh3LE4W');
   }
 }

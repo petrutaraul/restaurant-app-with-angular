@@ -1,15 +1,21 @@
-<mat-card class="booking-calendar">
-  <div (click)="$event.stopPropagation()">
-    <mat-calendar
-      #calendar
-      (selectedChange)="select($event, calendar)"
-      [dateFilter]="bookedDatesFilter"
-      [dateClass]="dateClass"
-    ></mat-calendar>
-  </div>
-</mat-card>
+<div class="calendar" *ngIf="!loading">
+  <mat-card class="booking-calendar">
+    <div (click)="$event.stopPropagation()">
+      <mat-calendar
+        #calendar
+        (selectedChange)="select($event, calendar)"
+        [dateFilter]="bookedDatesFilter"
+        [dateClass]="dateClass"
+      ></mat-calendar>
+    </div>
+  </mat-card>
 
-<app-form
-  *ngIf="daysSelected.length !== 0"
-  [bookingDates]="daysSelected"
-></app-form>
+  <app-form
+    *ngIf="formatedDates.length !== 0"
+    [bookingDates]="formatedDates"
+    [datesToSave]="unFormatedDatesToSave"
+    (bookSucceded)="reload()"
+  ></app-form>
+</div>
+
+<app-spinner *ngIf="loading"></app-spinner>

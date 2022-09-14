@@ -20,14 +20,18 @@
 
       input,
       textarea {
-        width: 100%;
+        width: 93%;
         padding: 10px;
-        background-color: transparent;
+        background-color: $main-color;
         border: 2px solid $main-text-color;
         color: $white-color;
 
         &:disabled {
           cursor: not-allowed;
+        }
+
+        &::placeholder {
+          color: $placeholders;
         }
       }
     }
@@ -40,5 +44,6 @@
 
   button {
     margin-top: 20px;
+    z-index: 4;
   }
 }

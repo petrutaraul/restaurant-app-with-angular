@@ -1,5 +1,13 @@
-import { Component, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  Output,
+  ViewEncapsulation,
+  AfterViewInit,
+  OnInit,
+} from '@angular/core';
 import { MatCalendarCellClassFunction } from '@angular/material/datepicker';
+import { Router } from '@angular/router';
+import { DbCommunicationService } from 'src/app/shared/services/db-communication.service';
 
 @Component({
   selector: 'app-calendar',
@@ -7,22 +15,26 @@ import { MatCalendarCellClassFunction } from '@angular/material/datepicker';
   styleUrls: ['./calendar.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class CalendarComponent implements OnInit {
+export class CalendarComponent implements AfterViewInit, OnInit {
   selected: Date | null;
-  @Output() daysSelected: string[] = [];
+  @Output() formatedDates: string[] = [];
+  @Output() unFormatedDatesToSave: string[] = [];
+  responseBookedDates: Date[] = [];
+  loading: boolean = true;
 
-  response = {
-    disabledDates: ['09/09/2022', '09/05/2022', '09/18/2022'],
-  };
-
-  bookedDates = this.response.disabledDates.map((date: string) => {
-    return new Date(date);
-  });
+  constructor(
+    private dataService: DbCommunicationService,
+    private router: Router
+  ) {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => {
+      return false;
+    };
+  }
 
   bookedDatesFilter = (date: Date) => {
     const time = date.getTime();
 
-    return !this.bookedDates.find((x) => x.getTime() == time);
+    return !this.responseBookedDates.find((x) => x.getTime() == time);
   };
 
   dateClass: MatCalendarCellClassFunction<Date> = (event) => {
@@ -33,26 +45,60 @@ export class CalendarComponent implements OnInit {
       '-' +
       event.getFullYear();
 
-    return this.daysSelected.find((x) => x == date) ? 'selected' : '';
+    return this.formatedDates.find((x) => x == date) ? 'selected' : '';
+  };
+
+  pushDatesToCorrectArray = (
+    correctDate: string,
+    correctArrayToBeSave: string[]
+  ) => {
+    const index = correctArrayToBeSave.findIndex((x) => x == correctDate);
+    if (index < 0) correctArrayToBeSave.push(correctDate);
+    else correctArrayToBeSave.splice(index, 1);
   };
 
   select(event: any, calendar: any) {
-    const date =
+    const formatedDateToBeShown =
       ('00' + event.getDate()).slice(-2) +
       '-' +
       ('00' + (event.getMonth() + 1)).slice(-2) +
       '-' +
       event.getFullYear();
-    const index = this.daysSelected.findIndex((x) => x == date);
-    if (index < 0) this.daysSelected.push(date);
-    else this.daysSelected.splice(index, 1);
+
+    const formatedDatesForResponse =
+      event.getFullYear() +
+      '-' +
+      ('00' + (event.getMonth() + 1)).slice(-2) +
+      '-' +
+      ('00' + event.getDate()).slice(-2);
+
+    this.pushDatesToCorrectArray(formatedDateToBeShown, this.formatedDates);
+    this.pushDatesToCorrectArray(
+      formatedDatesForResponse,
+      this.unFormatedDatesToSave
+    );
 
     calendar.updateTodaysDate();
-
-    console.log('this.daysSelected', this.daysSelected);
   }
 
-  constructor() {}
+  getBookedDates = () => {
+    var datesToBeBooked: Date[] = [];
+    this.dataService.getBookedDate().subscribe((data: any) => {
+      data.map((x: any) =>
+        x.bookDates.map((x: any) => datesToBeBooked.push(new Date(x)))
+      );
+      this.responseBookedDates = datesToBeBooked;
+      this.loading = false;
+    });
+  };
+
+  reload = () => {
+    this.router.navigateByUrl('/home');
+  };
 
   ngOnInit(): void {}
+
+  ngAfterViewInit(): void {
+    this.getBookedDates();
+  }
 }

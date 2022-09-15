@@ -23,6 +23,7 @@ import { BookNowScrollBtnComponent } from './components/book-now-scroll-btn/book
 import { BookingSliderComponent } from './components/sliders/booking-slider/booking-slider.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { InfoSliderComponent } from './components/info-slider/info-slider.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     BookNowScrollBtnComponent,
     BookingSliderComponent,
     SpinnerComponent,
+    InfoSliderComponent,
   ],
   imports: [
     BrowserModule,

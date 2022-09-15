@@ -1,0 +1,22 @@
+@import "../../shared/styles/colors";
+
+.info-slider {
+  position: absolute;
+  top: 30px;
+  right: -100px;
+  background-color: $success-color;
+  padding: 20px;
+  font-weight: 600;
+
+  animation: myAnim 1s ease 0s 1 normal forwards;
+
+  @keyframes myAnim {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(-100px);
+    }
+  }
+}

@@ -37,13 +37,18 @@ export class CalendarComponent implements AfterViewInit, OnInit {
     return !this.responseBookedDates.find((x) => x.getTime() == time);
   };
 
-  dateClass: MatCalendarCellClassFunction<Date> = (event) => {
-    const date =
+  formatDateToLocale = (event: any) => {
+    return (
       ('00' + event.getDate()).slice(-2) +
       '-' +
       ('00' + (event.getMonth() + 1)).slice(-2) +
       '-' +
-      event.getFullYear();
+      event.getFullYear()
+    );
+  };
+
+  dateClass: MatCalendarCellClassFunction<Date> = (event) => {
+    const date = this.formatDateToLocale(event);
 
     return this.formatedDates.find((x) => x == date) ? 'selected' : '';
   };
@@ -58,12 +63,7 @@ export class CalendarComponent implements AfterViewInit, OnInit {
   };
 
   select(event: any, calendar: any) {
-    const formatedDateToBeShown =
-      ('00' + event.getDate()).slice(-2) +
-      '-' +
-      ('00' + (event.getMonth() + 1)).slice(-2) +
-      '-' +
-      event.getFullYear();
+    const formatedDateToBeShown = this.formatDateToLocale(event);
 
     const formatedDatesForResponse =
       event.getFullYear() +

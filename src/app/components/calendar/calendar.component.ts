@@ -4,8 +4,12 @@ import {
   ViewEncapsulation,
   AfterViewInit,
   OnInit,
+  ViewChild,
 } from '@angular/core';
-import { MatCalendarCellClassFunction } from '@angular/material/datepicker';
+import {
+  MatCalendar,
+  MatCalendarCellClassFunction,
+} from '@angular/material/datepicker';
 import { Router } from '@angular/router';
 import { DbCommunicationService } from 'src/app/shared/services/db-communication.service';
 
@@ -16,11 +20,12 @@ import { DbCommunicationService } from 'src/app/shared/services/db-communication
   encapsulation: ViewEncapsulation.None,
 })
 export class CalendarComponent implements AfterViewInit, OnInit {
-  selected: Date | null;
+  @ViewChild(MatCalendar) calendar: MatCalendar<Date>;
   @Output() formatedDates: string[] = [];
   @Output() unFormatedDatesToSave: string[] = [];
   responseBookedDates: Date[] = [];
   loading: boolean = true;
+  todayDate: Date = new Date();
 
   constructor(
     private dataService: DbCommunicationService,
@@ -92,17 +97,17 @@ export class CalendarComponent implements AfterViewInit, OnInit {
     });
   };
 
-  scrollToButtom() {
-    setTimeout(() => {
-      window.scrollTo(0, document.body.scrollHeight);
-    }, 1000);
-  }
-
   reload = () => {
-    this.router.navigateByUrl('/home');
-    if (!this.loading) {
-      this.scrollToButtom();
-    }
+    this.resetComponent();
+  };
+
+  resetComponent = () => {
+    this.formatedDates = [];
+    this.unFormatedDatesToSave = [];
+    this.calendar.updateTodaysDate();
+    this.loading = true;
+    this.getBookedDates();
+    this.ngOnInit();
   };
 
   ngOnInit(): void {}

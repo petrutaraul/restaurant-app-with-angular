@@ -1,3 +1,11 @@
-<div class="info-slider">
-  <p>Booking succeded! Refreshing...</p>
+<div
+  class="info-slider"
+  [ngClass]="{
+    'info-slider': true,
+    'error-message': !isSuccess,
+    'success-message': isSuccess
+  }"
+>
+  <p *ngIf="isSuccess">You booked: {{ savedDates }}!</p>
+  <p *ngIf="!isSuccess">Booking error!</p>
 </div>

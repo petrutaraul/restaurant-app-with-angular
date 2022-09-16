@@ -13,16 +13,6 @@ export class DbCommunicationService {
     return this.http.get(this.localUrl + '/booked-dates');
   }
 
-  getReturnedBookedDates(): Observable<any> {
-    const getData = this.http.get(this.localUrl + '/booked-dates');
-    return from(getData).pipe(
-      map((data: any) => {
-        data.map((x: any) => x.bookDates.map((x: any) => new Date(x)));
-        console.log(data);
-      })
-    );
-  }
-
   saveBookedDate(bookDate: any[], name: any): Observable<any> {
     return this.http.post<any>(this.localUrl + '/book-date', {
       bookDate,

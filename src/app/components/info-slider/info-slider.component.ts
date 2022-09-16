@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class InfoSliderComponent implements OnInit {
   @Input('userSavedDates') savedDates: string[];
+  @Input() isSuccess: boolean = true;
 
   constructor() {}
 

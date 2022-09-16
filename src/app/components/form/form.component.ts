@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ComponentRef, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { DbCommunicationService } from 'src/app/shared/services/db-communication.service';
@@ -14,7 +14,7 @@ export class FormComponent {
   @Input() datesToSave: string[];
 
   subscription: Subscription;
-  @Output() bookSucceded = new EventEmitter<any>();
+  @Output() bookedEvent = new EventEmitter<boolean>();
 
   constructor(private dataService: DbCommunicationService) {}
 
@@ -33,10 +33,9 @@ export class FormComponent {
       .saveBookedDate(datesTobeBooked, this.calendarForm.value.name)
       .subscribe(
         (success) => {
-          console.log('bravo');
-          this.bookSucceded.emit();
+          this.bookedEvent.emit(true);
         },
-        (error) => console.log(error)
+        (error) => this.bookedEvent.emit(false)
       );
   }
 

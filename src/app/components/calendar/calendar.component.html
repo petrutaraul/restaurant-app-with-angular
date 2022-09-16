@@ -1,5 +1,5 @@
-<div class="calendar" *ngIf="!loading">
-  <mat-card class="booking-calendar">
+<div class="calendar">
+  <mat-card class="booking-calendar" *ngIf="!loading">
     <div (click)="$event.stopPropagation()">
       <mat-calendar
         #calendar
@@ -15,10 +15,8 @@
     *ngIf="formatedDates.length !== 0"
     [bookingDates]="formatedDates"
     [datesToSave]="unFormatedDatesToSave"
-    (bookSucceded)="reload()"
+    (bookedEvent)="reload($event)"
   ></app-form>
 </div>
-
-<!-- <app-info-slider></app-info-slider> -->
 
 <app-spinner *ngIf="loading"></app-spinner>

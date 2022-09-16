@@ -5,6 +5,7 @@ import {
   AfterViewInit,
   OnInit,
   ViewChild,
+  ViewContainerRef,
 } from '@angular/core';
 import {
   MatCalendar,
@@ -12,6 +13,7 @@ import {
 } from '@angular/material/datepicker';
 import { Router } from '@angular/router';
 import { DbCommunicationService } from 'src/app/shared/services/db-communication.service';
+import { InfoSliderComponent } from '../info-slider/info-slider.component';
 
 @Component({
   selector: 'app-calendar',
@@ -29,7 +31,8 @@ export class CalendarComponent implements AfterViewInit, OnInit {
 
   constructor(
     private dataService: DbCommunicationService,
-    private router: Router
+    private router: Router,
+    private viewContainerRef: ViewContainerRef
   ) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => {
       return false;
@@ -97,7 +100,15 @@ export class CalendarComponent implements AfterViewInit, OnInit {
     });
   };
 
-  reload = () => {
+  showInfoModal = (isError: boolean) => {
+    const infoComponentRef =
+      this.viewContainerRef.createComponent(InfoSliderComponent);
+    infoComponentRef.instance.isSuccess = isError;
+    infoComponentRef.instance.savedDates = this.formatedDates;
+  };
+
+  reload = (isBookedSucces: boolean) => {
+    this.showInfoModal(isBookedSucces);
     this.resetComponent();
   };
 
